@@ -33,10 +33,12 @@ import be.Balor.World.ACWorld;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class ACCreatureSpawnListener implements Listener {
-	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+	// Disable: NOT using this feature -syamn
+	// HEAVY LISTENER!
+	//@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onCreatureSpawn(final CreatureSpawnEvent event) {
 		final Entity e = event.getEntity();
 		if (e instanceof HumanEntity) {

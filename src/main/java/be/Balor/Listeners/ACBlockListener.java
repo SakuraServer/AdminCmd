@@ -27,14 +27,16 @@ import be.Balor.bukkit.AdminCmd.ACHelper;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class ACBlockListener implements Listener {
 	/**
 	 * @author Lathanael (aka Philippe Leipold)
-	 * 
+	 *
 	 */
-	@EventHandler(ignoreCancelled = true)
+
+	// Disable: NOT using this feature -syamn
+	//@EventHandler(ignoreCancelled = true)
 	public void onBlockPlace(final BlockPlaceEvent event) {
 		final Player player = event.getPlayer();
 		final Block block = event.getBlock();

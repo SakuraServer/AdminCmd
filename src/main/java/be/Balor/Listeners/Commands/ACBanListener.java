@@ -29,10 +29,11 @@ import be.Balor.bukkit.AdminCmd.ACHelper;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class ACBanListener implements Listener {
-	@EventHandler(priority = EventPriority.HIGHEST)
+	// Disable: NOT using this feature -syamn
+	//@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerLogin(final PlayerLoginEvent event) {
 		if (!event.getResult().equals(Result.ALLOWED)) {
 			return;

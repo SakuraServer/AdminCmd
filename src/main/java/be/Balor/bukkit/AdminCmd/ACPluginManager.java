@@ -30,9 +30,6 @@ import be.Balor.Manager.CommandManager;
 import be.Balor.Manager.Commands.CoreCommand;
 import be.Balor.Tools.Debug.ACLogger;
 import be.Balor.Tools.Debug.DebugLog;
-import be.Balor.Tools.Metrics.Metrics;
-import be.Balor.Tools.Metrics.Metrics.Graph;
-import be.Balor.Tools.Metrics.Metrics.Plotter;
 
 /**
  * @author Balor (aka Antoine Aflalo)
@@ -44,7 +41,6 @@ public class ACPluginManager {
 			.synchronizedMap(new HashMap<String, AbstractAdminCmdPlugin>());
 	private final static Server server = Bukkit.getServer();
 	private static AbstractAdminCmdPlugin corePlugin;
-	private static Graph graph = null;
 
 	/**
 	 * @return the instance
@@ -156,18 +152,6 @@ public class ACPluginManager {
 			if (corePlugin == null || addon.equals(corePlugin)) {
 				return;
 			}
-			graph.addPlotter(new Plotter() {
-
-				@Override
-				public int getValue() {
-					return 1;
-				}
-
-				@Override
-				public String getColumnName() {
-					return "Addon " + addon.getAddonName();
-				}
-			});
 		} else {
 			throw new IllegalArgumentException("Plugin " + addon.getAddonName()
 					+ " Already registered.");
@@ -191,20 +175,6 @@ public class ACPluginManager {
 	 */
 	protected void unRegisterPlugin(final AbstractAdminCmdPlugin addon) {
 		pluginInstances.remove(addon.getAddonName());
-		if (!addon.equals(corePlugin)) {
-			graph.removePlotter(new Plotter() {
-
-				@Override
-				public int getValue() {
-					return 1;
-				}
-
-				@Override
-				public String getColumnName() {
-					return "Addon " + addon.getAddonName();
-				}
-			});
-		}
 	}
 
 }

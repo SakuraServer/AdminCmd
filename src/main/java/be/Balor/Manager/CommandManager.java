@@ -59,9 +59,6 @@ import be.Balor.Tools.Debug.DebugLog;
 import be.Balor.Tools.Files.FileManager;
 import be.Balor.Tools.Files.PluginCommandUtil;
 import be.Balor.Tools.Help.HelpLister;
-import be.Balor.Tools.Metrics.ClassPlotter;
-import be.Balor.Tools.Metrics.IncrementalPlotter;
-import be.Balor.Tools.Metrics.Metrics.Graph;
 import be.Balor.bukkit.AdminCmd.ACPluginManager;
 import be.Balor.bukkit.AdminCmd.AbstractAdminCmdPlugin;
 import be.Balor.bukkit.AdminCmd.AdminCmd;
@@ -95,7 +92,6 @@ public class CommandManager implements CommandExecutor {
 		public void run() {
 			try {
 				processCmd();
-				plotters.get(acc.getCommandClass()).increment();
 			} catch (final ConcurrentModificationException cme) {
 				ACPluginManager.getScheduler().scheduleSyncDelayedTask(
 						corePlugin, new SyncCommand(acc));
@@ -178,7 +174,6 @@ public class CommandManager implements CommandExecutor {
 	private final HashMap<Command, CoreCommand> registeredCommands = new HashMap<Command, CoreCommand>();
 	private final int MAX_THREADS = 8;
 	private static CommandManager instance = new CommandManager();
-	private Graph graph;
 
 	public static CommandManager createInstance() {
 		if (instance == null) {
@@ -205,7 +200,6 @@ public class CommandManager implements CommandExecutor {
 			MAX_THREADS, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>(
 					true));
 	private final Map<AbstractAdminCmdPlugin, Map<String, Command>> pluginCommands = new HashMap<AbstractAdminCmdPlugin, Map<String, Command>>();
-	private final Map<Class<? extends CoreCommand>, IncrementalPlotter> plotters = new HashMap<Class<? extends CoreCommand>, IncrementalPlotter>();
 	private final Set<String> commandsOnJoin = new HashSet<String>();
 
 	/**
@@ -429,9 +423,6 @@ public class CommandManager implements CommandExecutor {
 			command.registerBukkitPerm();
 			command.getPluginCommand().setExecutor(instance);
 			registeredCommands.put(command.getPluginCommand(), command);
-			final IncrementalPlotter plotter = new ClassPlotter(clazz);
-			graph.addPlotter(plotter);
-			plotters.put(clazz, plotter);
 		} catch (final InstantiationException e) {
 			e.printStackTrace();
 			return false;
@@ -486,9 +477,6 @@ public class CommandManager implements CommandExecutor {
 				registeredCommands.put(command.getPluginCommand(), command);
 				DebugLog.INSTANCE
 						.info("Command Prioritized but already exists");
-				final IncrementalPlotter plotter = new ClassPlotter(clazz);
-				graph.addPlotter(plotter);
-				plotters.put(clazz, plotter);
 				return true;
 			}
 		} catch (final CommandException e) {

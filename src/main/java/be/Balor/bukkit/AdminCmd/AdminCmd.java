@@ -1,8 +1,5 @@
 package be.Balor.bukkit.AdminCmd;
 
-import java.io.IOException;
-import java.util.logging.Level;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -25,7 +22,6 @@ import be.Balor.Listeners.Commands.ACFoodListener;
 import be.Balor.Listeners.Commands.ACFrozenPlayerListener;
 import be.Balor.Listeners.Commands.ACGodListener;
 import be.Balor.Listeners.Commands.ACLockedServerListener;
-import be.Balor.Listeners.Commands.ACOpenInvListener;
 import be.Balor.Listeners.Commands.ACSuperBreaker;
 import be.Balor.Listeners.Commands.ACTeleportBackListener;
 import be.Balor.Listeners.Commands.ACThorListener;
@@ -88,7 +84,6 @@ import be.Balor.Manager.Commands.Player.Mute;
 import be.Balor.Manager.Commands.Player.MuteList;
 import be.Balor.Manager.Commands.Player.NoDrop;
 import be.Balor.Manager.Commands.Player.NoPickup;
-import be.Balor.Manager.Commands.Player.OpenInventory;
 import be.Balor.Manager.Commands.Player.Played;
 import be.Balor.Manager.Commands.Player.PlayerList;
 import be.Balor.Manager.Commands.Player.PlayerLocation;
@@ -156,7 +151,6 @@ import be.Balor.Manager.Commands.Weather.Thor;
 import be.Balor.Manager.Permissions.PermChild;
 import be.Balor.Manager.Permissions.PermParent;
 import be.Balor.Manager.Terminal.TerminalCommandManager;
-import be.Balor.OpenInv.InventoryManager;
 import be.Balor.Player.ACPlayer;
 import be.Balor.Player.FilePlayer;
 import be.Balor.Player.PlayerManager;
@@ -166,25 +160,16 @@ import be.Balor.Tools.Debug.ACLogger;
 import be.Balor.Tools.Debug.DebugLog;
 import be.Balor.Tools.Egg.EggTypeClassLoader;
 import be.Balor.Tools.Help.HelpLister;
-import be.Balor.Tools.Metrics.Metrics;
 import belgium.Balor.Workers.AFKWorker;
 import belgium.Balor.Workers.InvisibleWorker;
 
 /**
  * AdminCmd for Bukkit (fork of PlgEssentials)
- * 
+ *
  * @authors Plague, Balor, Lathanael
  */
 public final class AdminCmd extends AbstractAdminCmdPlugin {
 	private ACHelper worker;
-	private Metrics metrics;
-
-	/**
-	 * @return the metrics
-	 */
-	public Metrics getMetrics() {
-		return metrics;
-	}
 
 	@Override
 	public void onDisable() {
@@ -213,11 +198,6 @@ public final class AdminCmd extends AbstractAdminCmdPlugin {
 	public void onEnable() {
 		ExtendedConfiguration.setClassLoader(this.getClassLoader());
 		DebugLog.setFile(getDataFolder().getPath());
-		try {
-			metrics = new Metrics(this);
-		} catch (final IOException e) {
-			DebugLog.INSTANCE.log(Level.SEVERE, "Stats problem", e);
-		}
 		final PluginDescriptionFile pdfFile = this.getDescription();
 		DebugLog.INSTANCE.info("Plugin Version : " + pdfFile.getVersion());
 		final PluginManager pm = getServer().getPluginManager();
@@ -225,74 +205,6 @@ public final class AdminCmd extends AbstractAdminCmdPlugin {
 		pm.registerEvents(new ACPluginListener(), this);
 		worker = ACHelper.getInstance();
 		worker.setCoreInstance(this);
-
-		ACPluginManager.setMetrics(metrics);
-
-		metrics.addCustomData(new Metrics.Plotter() {
-			@Override
-			public String getColumnName() {
-				return "Total Banned Players";
-			}
-
-			@Override
-			public int getValue() {
-				return worker.countBannedPlayers();
-			}
-		});
-		metrics.addCustomData(new Metrics.Plotter() {
-			@Override
-			public String getColumnName() {
-				return "Total Kits";
-			}
-
-			@Override
-			public int getValue() {
-				return worker.getNbKit();
-			}
-		});
-		metrics.addCustomData(new Metrics.Plotter() {
-			@Override
-			public String getColumnName() {
-				return "Total Blacklisted Items";
-			}
-
-			@Override
-			public int getValue() {
-				return worker.countBlackListedItems();
-			}
-		});
-		metrics.addCustomData(new Metrics.Plotter() {
-			@Override
-			public String getColumnName() {
-				return "Total Invisible Players";
-			}
-
-			@Override
-			public int getValue() {
-				return InvisibleWorker.getInstance().nbInvisibles();
-			}
-		});
-		metrics.addCustomData(new Metrics.Plotter() {
-			@Override
-			public String getColumnName() {
-				return "Total Afk Players";
-			}
-
-			@Override
-			public int getValue() {
-				return AFKWorker.getInstance().nbAfk();
-			}
-		});
-		getServer().getScheduler().scheduleAsyncDelayedTask(this,
-				new Runnable() {
-
-					@Override
-					public void run() {
-						metrics.start();
-						DebugLog.INSTANCE.info("Stats started");
-					}
-				}, 30 * Utils.secInTick);
-
 		worker.loadInfos();
 		super.onEnable();
 		TerminalCommandManager.getInstance().setPerm(this);
@@ -464,10 +376,6 @@ public final class AdminCmd extends AbstractAdminCmdPlugin {
 		cmdManager.registerCommand(MuteList.class);
 		cmdManager.registerCommand(UnMuteAll.class);
 		cmdManager.registerCommand(ReloadTxt.class);
-		if (cmdManager.registerCommand(OpenInventory.class)) {
-			InventoryManager.createInstance();
-			pm.registerEvents(new ACOpenInvListener(), this);
-		}
 
 		if (ConfigEnum.GSPAWN.getString().equalsIgnoreCase("group")) {
 			cmdManager.registerCommand(SetGroupSpawn.class);

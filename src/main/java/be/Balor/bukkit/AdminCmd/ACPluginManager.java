@@ -1,16 +1,16 @@
 /************************************************************************
- * This file is part of AdminCmd.									
- *																		
+ * This file is part of AdminCmd.
+ *
  * AdminCmd is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by	
- * the Free Software Foundation, either version 3 of the License, or		
- * (at your option) any later version.									
- *																		
- * AdminCmd is distributed in the hope that it will be useful,	
- * but WITHOUT ANY WARRANTY; without even the implied warranty of		
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the			
- * GNU General Public License for more details.							
- *																		
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * AdminCmd is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
  * You should have received a copy of the GNU General Public License
  * along with AdminCmd.  If not, see <http://www.gnu.org/licenses/>.
  ************************************************************************/
@@ -36,7 +36,7 @@ import be.Balor.Tools.Metrics.Metrics.Plotter;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class ACPluginManager {
 	private final static ACPluginManager instance = new ACPluginManager();
@@ -59,7 +59,7 @@ public class ACPluginManager {
 
 	/**
 	 * Get Bukkit Scheduler
-	 * 
+	 *
 	 * @return
 	 */
 	public static BukkitScheduler getScheduler() {
@@ -80,7 +80,7 @@ public class ACPluginManager {
 
 	/**
 	 * Register a Plugin Command
-	 * 
+	 *
 	 * @param clazz
 	 */
 	public static void registerCommand(final Class<? extends CoreCommand> clazz)
@@ -90,7 +90,7 @@ public class ACPluginManager {
 
 	/**
 	 * Schedule a SyncTask
-	 * 
+	 *
 	 * @param task
 	 * @return
 	 */
@@ -100,7 +100,7 @@ public class ACPluginManager {
 
 	/**
 	 * Schedule a AsyncDelayedTask
-	 * 
+	 *
 	 * @param task
 	 * @return
 	 */
@@ -123,14 +123,6 @@ public class ACPluginManager {
 		return corePlugin;
 	}
 
-	/**
-	 * @param metrics
-	 *            the metrics to set
-	 */
-	static void setMetrics(final Metrics metrics) {
-		ACPluginManager.graph = metrics.createGraph("Plugins");
-	}
-
 	public static void unRegisterACPlugin(final Plugin addon) {
 		if (addon instanceof AbstractAdminCmdPlugin) {
 			getInstance().unRegisterPlugin((AbstractAdminCmdPlugin) addon);
@@ -142,7 +134,7 @@ public class ACPluginManager {
 
 	/**
 	 * Get registered plugin
-	 * 
+	 *
 	 * @param name
 	 *            name of the addon
 	 * @return the addon or null if not registered
@@ -153,7 +145,7 @@ public class ACPluginManager {
 
 	/**
 	 * Register a AdminCmd addon
-	 * 
+	 *
 	 * @param addon
 	 */
 	protected void registerPlugin(final AbstractAdminCmdPlugin addon)
@@ -194,7 +186,7 @@ public class ACPluginManager {
 
 	/**
 	 * Unregister an AdminCmd addon
-	 * 
+	 *
 	 * @param addon
 	 */
 	protected void unRegisterPlugin(final AbstractAdminCmdPlugin addon) {

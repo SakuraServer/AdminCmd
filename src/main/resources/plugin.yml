@@ -2,7 +2,7 @@ name: AdminCmd
 main: be.Balor.bukkit.AdminCmd.AdminCmd
 version: ${project.version} (BUILD ${git.build.time})
 authors: [Balor, Lathanael]
-softdepend: [MultiVerse,Multiverse-Core,Permissions,dynmap,mChatSuite,OddItem,Spout,mcMMO,VirtualChest,HeroChat,XrayInformer,HomeSpawnPlus,LogBlock,XXX]
+softdepend: [MultiVerse,Multiverse-Core,dynmap,mcMMO,HeroChat,XrayInformer,HomeSpawnPlus,XXX]
 description: >
              This plugin implements the basic commands for running a server.
 commands:
@@ -190,14 +190,6 @@ commands:
     description: get the ip of the player.
     aliases: [ip,address]
     usage: /<command> [playerName]
-  bal_ban:
-    description: ban the player.
-    aliases: [ban,pban]
-    usage: /<command> playerName [reason] <duration>
-  bal_unban:
-    description: unban the player.
-    aliases: [unban,ub]
-    usage: /<command> playerName
   bal_killmob:
     description: Kill the mob.
     aliases: [mobkill,mk]
@@ -322,10 +314,6 @@ commands:
     description: How many time the player have played on the server.
     aliases: [played, ptime]
     usage: /<command> [player]
-  bal_banconvert:
-    description: to convert old dev ban to new ban.
-    aliases: [cban]
-    usage: /<command>
   bal_lockdown:
     description: to lock the server.
     aliases: [lock,lockdown]
@@ -378,10 +366,6 @@ commands:
     description: Add, Dropp experience or set the Level or progression, if no player given the sender is affected
     aliases: [xp, exp, experience]
     usage: /<command> <-a|-l|-p|-d> <player> <amount>
-  bal_stop:
-   description: Stop the server by kicking first every connected players. If the -t parameter is set, wait the time before stopping, else take the one configured in the configuration file.
-   aliases: [stop, ss, sstop]
-   usage: /<command> <-t second>
   bal_nodrop:
     description: disable the drop for the selected player. When trying to drop, it's cancelled, when dying, you keep your items.
     aliases: [nd,nodrop]
@@ -420,10 +404,6 @@ commands:
     description: Lets you teleport all players to one location or player in a world.
     aliases: [tpall]
     usage: /<command> <worldName> <-s|-w warpName|-l x y z|-p playerName>
-  bal_banlist:
-    description: Displays each banned player, the reason for the ban and the date.
-    aliases: [banlist, bl]
-    usage: /<command>
   bal_search:
     description: "Search for different things associated with a player.(Currently only ips via -i ip)"
     aliases: [search,look]
@@ -442,9 +422,6 @@ commands:
   bal_rtxt:
     aliases: [rtxt,reloadtxt]
     usage: /<command>
-  bal_openinv:
-    aliases: [openinv,oi]
-    usage: /<command> player
   bal_groupspawn:
     description: TP to the spawn location of a group.
     aliases: [groupspawn,gspawn,gts]

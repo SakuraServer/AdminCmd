@@ -320,6 +320,10 @@
 	</build>
 	<repositories>
 		<repository>
+			<id>Bukkit Official</id>
+			<url>http://repo.bukkit.org/content/groups/public/</url>
+		</repository>
+		<repository>
 			<snapshots />
 			<id>BukkitDev</id>
 			<name>BukkitDev</name>
@@ -349,10 +353,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>ru.tehkode</groupId>
+		<groupId>ru.tehkode</groupId>
 			<artifactId>PermissionsEx</artifactId>
-			<version>1.19.1</version>
-			<scope>provided</scope>
+			<version>1.19.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/PermissionsEx-1.19.4.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>info.somethingodd</groupId>
@@ -398,12 +403,12 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.4.2-R0.3-SNAPSHOT</version>
+			<version>1.4.5-R0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.4.2-R0.3-SNAPSHOT</version>
+			<version>1.4.5-R0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.dynmap</groupId>

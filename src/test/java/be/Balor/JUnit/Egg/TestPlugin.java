@@ -32,7 +32,7 @@ import com.avaje.ebean.EbeanServer;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class TestPlugin extends JavaPlugin {
 	private final PluginDescriptionFile pdf = new PluginDescriptionFile("test",
@@ -40,7 +40,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.bukkit.command.CommandExecutor#onCommand(org.bukkit.command.CommandSender
 	 * , org.bukkit.command.Command, java.lang.String, java.lang.String[])
@@ -54,28 +54,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see org.bukkit.plugin.Plugin#getDataFolder()
-	 */
-	@Override
-	public File getDataFolder() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.bukkit.plugin.Plugin#getDescription()
-	 */
-	@Override
-	public PluginDescriptionFile getDescription() {
-		return pdf;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#getConfiguration()
 	 */
 	public Configuration getConfiguration() {
@@ -85,7 +64,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#getConfig()
 	 */
 	@Override
@@ -96,7 +75,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#getResource(java.lang.String)
 	 */
 	@Override
@@ -107,7 +86,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#saveConfig()
 	 */
 	@Override
@@ -118,7 +97,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#saveDefaultConfig()
 	 */
 	@Override
@@ -129,7 +108,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#saveResource(java.lang.String, boolean)
 	 */
 	@Override
@@ -140,7 +119,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#reloadConfig()
 	 */
 	@Override
@@ -151,7 +130,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#onDisable()
 	 */
 	@Override
@@ -162,7 +141,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#onLoad()
 	 */
 	@Override
@@ -173,7 +152,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#onEnable()
 	 */
 	@Override
@@ -184,7 +163,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#getDatabase()
 	 */
 	@Override
@@ -195,7 +174,7 @@ public class TestPlugin extends JavaPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.bukkit.plugin.Plugin#getDefaultWorldGenerator(java.lang.String,
 	 * java.lang.String)
 	 */
@@ -205,16 +184,4 @@ public class TestPlugin extends JavaPlugin {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.bukkit.plugin.Plugin#getLogger()
-	 */
-	@Override
-	public Logger getLogger() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

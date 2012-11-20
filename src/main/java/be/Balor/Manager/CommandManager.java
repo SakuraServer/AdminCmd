@@ -70,7 +70,7 @@ import be.Balor.bukkit.AdminCmd.LocaleHelper;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class CommandManager implements CommandExecutor {
 	private class NormalCommand implements Runnable {
@@ -88,7 +88,7 @@ public class CommandManager implements CommandExecutor {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.lang.Runnable#run()
 		 */
 		@Override
@@ -121,7 +121,7 @@ public class CommandManager implements CommandExecutor {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.lang.Object#toString()
 		 */
 		@Override
@@ -139,7 +139,7 @@ public class CommandManager implements CommandExecutor {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.lang.Runnable#run()
 		 */
 		@Override
@@ -158,7 +158,7 @@ public class CommandManager implements CommandExecutor {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.lang.Object#toString()
 		 */
 		@Override
@@ -249,7 +249,7 @@ public class CommandManager implements CommandExecutor {
 
 	/**
 	 * Check the command if it have alias, prioritized or disabled.
-	 * 
+	 *
 	 * @param command
 	 * @throws CommandDisabled
 	 */
@@ -284,7 +284,7 @@ public class CommandManager implements CommandExecutor {
 
 	/**
 	 * Used to execute ACCommands
-	 * 
+	 *
 	 * @param sender
 	 * @param cmd
 	 * @param args
@@ -350,7 +350,7 @@ public class CommandManager implements CommandExecutor {
 	 * Execute on the new player the commands found in the Commands.yml.<br />
 	 * First look as a simple bukkit command, then in the alias defined by the
 	 * user.
-	 * 
+	 *
 	 * @param player
 	 *            player that will execute the command.
 	 */
@@ -401,7 +401,7 @@ public class CommandManager implements CommandExecutor {
 	}
 	/**
 	 * Register command from plugin
-	 * 
+	 *
 	 * @param plugin
 	 */
 	public void registerACPlugin(final AbstractAdminCmdPlugin plugin) {
@@ -415,7 +415,7 @@ public class CommandManager implements CommandExecutor {
 
 	/**
 	 * Register command
-	 * 
+	 *
 	 * @param clazz
 	 */
 	public boolean registerCommand(final Class<? extends CoreCommand> clazz) {
@@ -546,9 +546,7 @@ public class CommandManager implements CommandExecutor {
 
 				setAliasCmd.add(commandAlias);
 			}
-
 		}
-		graph = plugin.getMetrics().createGraph("Commands");
 		startThreads();
 	}
 
@@ -566,7 +564,7 @@ public class CommandManager implements CommandExecutor {
 
 	/**
 	 * Unregister a command from bukkit.
-	 * 
+	 *
 	 * @param pCmd
 	 */
 	private void unRegisterBukkitCommand(final PluginCommand pCmd) {
@@ -617,7 +615,7 @@ public class CommandManager implements CommandExecutor {
 
 	/**
 	 * UnRegister command
-	 * 
+	 *
 	 * @param clazz
 	 *            command to unregister
 	 * @param plugin

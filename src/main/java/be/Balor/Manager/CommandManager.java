@@ -58,7 +58,6 @@ import be.Balor.Tools.Debug.ACLogger;
 import be.Balor.Tools.Debug.DebugLog;
 import be.Balor.Tools.Files.FileManager;
 import be.Balor.Tools.Files.PluginCommandUtil;
-import be.Balor.Tools.Help.HelpLister;
 import be.Balor.bukkit.AdminCmd.ACPluginManager;
 import be.Balor.bukkit.AdminCmd.AbstractAdminCmdPlugin;
 import be.Balor.bukkit.AdminCmd.AdminCmd;
@@ -292,11 +291,7 @@ public class CommandManager implements CommandExecutor {
 				return true;
 			}
 			if (!cmd.argsCheck(args)) {
-				if (!HelpLister.getInstance().displayExactCommandHelp(sender,
-						"AdminCmd", cmd.getCmdName())) {
-					return false;
-				}
-				return true;
+				return false;
 			}
 			container = new ACCommandContainer(sender, cmd, args);
 			/*
@@ -382,11 +377,7 @@ public class CommandManager implements CommandExecutor {
 					.Arrays_copyOfRange(split, 1, split.length));
 			final CoreCommand coreCmd = cmdAlias.getCmd();
 			if (!coreCmd.argsCheck(cmdArgsArray)) {
-				if (!HelpLister.getInstance().displayExactCommandHelp(sender,
-						"AdminCmd", coreCmd.getCmdName())) {
-					sender.sendMessage(coreCmd.getPluginCommand().getUsage()
-							.replace("<command>", cmdName));
-				}
+				sender.sendMessage(coreCmd.getPluginCommand().getUsage().replace("<command>", cmdName));
 				return true;
 			}
 			return executeCommand(sender, coreCmd, cmdArgsArray);
@@ -431,8 +422,6 @@ public class CommandManager implements CommandExecutor {
 			return false;
 		} catch (final CommandDisabled e) {
 			unRegisterBukkitCommand(command.getPluginCommand());
-			HelpLister.getInstance().removeHelpEntry(
-					command.getPlugin().getPluginName(), command.getCmdName());
 			if (ConfigEnum.VERBOSE.getBoolean()) {
 				ACLogger.info(e.getMessage());
 			}
@@ -463,9 +452,6 @@ public class CommandManager implements CommandExecutor {
 			}
 			if (disableCommand) {
 				unRegisterBukkitCommand(command.getPluginCommand());
-				HelpLister.getInstance().removeHelpEntry(
-						command.getPlugin().getPluginName(),
-						command.getCmdName());
 				if (ConfigEnum.VERBOSE.getBoolean()) {
 					ACLogger.info(e.getMessage());
 				}

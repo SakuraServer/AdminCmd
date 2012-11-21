@@ -27,7 +27,6 @@ import org.dynmap.DynmapAPI;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 import be.Balor.Manager.Permissions.PermissionManager;
 import be.Balor.Tools.Debug.ACLogger;
-import be.Balor.Tools.Help.HelpLister;
 import be.Balor.bukkit.AdminCmd.ACPluginManager;
 import be.Balor.bukkit.AdminCmd.ConfigEnum;
 import belgium.Balor.Workers.InvisibleWorker;
@@ -62,12 +61,6 @@ public class ACPluginListener implements Listener {
 			if (plugin != null && plugin.isEnabled()) {
 				InvisibleWorker.dynmapAPI = (DynmapAPI) plugin;
 				ACLogger.info("Successfully linked with Dynmap");
-			}
-		}
-		if (ConfigEnum.H_ALLPLUGIN.getBoolean()) {
-			for (final Plugin plugin : event.getPlugin().getServer()
-					.getPluginManager().getPlugins()) {
-				HelpLister.getInstance().addPlugin(plugin);
 			}
 		}
 	}

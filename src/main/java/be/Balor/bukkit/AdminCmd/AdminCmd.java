@@ -105,7 +105,6 @@ import be.Balor.Manager.Commands.Player.Withdraw;
 import be.Balor.Manager.Commands.Server.Broadcast;
 import be.Balor.Manager.Commands.Server.Execution;
 import be.Balor.Manager.Commands.Server.Extinguish;
-import be.Balor.Manager.Commands.Server.Help;
 import be.Balor.Manager.Commands.Server.ListValues;
 import be.Balor.Manager.Commands.Server.LockServer;
 import be.Balor.Manager.Commands.Server.MOTD;
@@ -159,7 +158,6 @@ import be.Balor.Tools.Configuration.File.ExtendedConfiguration;
 import be.Balor.Tools.Debug.ACLogger;
 import be.Balor.Tools.Debug.DebugLog;
 import be.Balor.Tools.Egg.EggTypeClassLoader;
-import be.Balor.Tools.Help.HelpLister;
 import belgium.Balor.Workers.AFKWorker;
 import belgium.Balor.Workers.InvisibleWorker;
 
@@ -187,7 +185,6 @@ public final class AdminCmd extends AbstractAdminCmdPlugin {
 		InvisibleWorker.killInstance();
 		AFKWorker.killInstance();
 		CommandManager.killInstance();
-		HelpLister.killInstance();
 		DebugLog.stopLogging();
 		System.gc();
 
@@ -328,7 +325,6 @@ public final class AdminCmd extends AbstractAdminCmdPlugin {
 		if (cmdManager.registerCommand(SuperBreaker.class)) {
 			pm.registerEvents(new ACSuperBreaker(), this);
 		}
-		cmdManager.registerCommand(Help.class);
 		cmdManager.registerCommand(Played.class);
 		if (cmdManager.registerCommand(LockServer.class)) {
 			lockCommand = true;

@@ -306,10 +306,6 @@ commands:
     description: Super Breaker mode, you break every block you touch.
     aliases: [sp,break,/]
     usage: /<command> <player>
-  bal_help:
-    description: Help command
-    aliases: [help,ah]
-    usage: "/<command> [Plugin] [#] <-s|-d> <cmdName>"
   bal_played:
     description: How many time the player have played on the server.
     aliases: [played, ptime]

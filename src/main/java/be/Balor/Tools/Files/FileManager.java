@@ -66,7 +66,7 @@ import com.google.common.io.Files;
 /**
  * @author Balor (aka Antoine Aflalo)
  * @author Lathanael (aka Philippe Leipold)
- * 
+ *
  */
 public class FileManager implements DataManager {
 	protected File pathFile;
@@ -100,7 +100,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Get a txt-file and return its content in a String
-	 * 
+	 *
 	 * @param fileName
 	 *            - The name of the file to be loaded
 	 * @return The content of the file
@@ -161,7 +161,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Open the file and return the ExtendedConfiguration object
-	 * 
+	 *
 	 * @param directory
 	 * @param filename
 	 * @return the configuration file
@@ -185,7 +185,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Open the file and return the File object
-	 * 
+	 *
 	 * @param directory
 	 * @param filename
 	 * @return the configuration file
@@ -228,7 +228,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * To write a text file on the AdminCmd folder.
-	 * 
+	 *
 	 * @param filename
 	 * @param toSet
 	 */
@@ -243,7 +243,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Write the alias in the yml file
-	 * 
+	 *
 	 * @param alias
 	 * @param mc
 	 */
@@ -270,7 +270,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Remove the alias from the yml fileF
-	 * 
+	 *
 	 * @param alias
 	 */
 	public void removeAlias(final String alias) {
@@ -292,7 +292,7 @@ public class FileManager implements DataManager {
 	/**
 	 * Get a file in the jar, copy it in the choose directory inside the plugin
 	 * folder, open it and return it
-	 * 
+	 *
 	 * @param filename
 	 * @return
 	 */
@@ -389,7 +389,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Create a flat file with the location informations
-	 * 
+	 *
 	 * @param loc
 	 * @param filename
 	 * @param directory
@@ -411,7 +411,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Return the location after parsing the flat file
-	 * 
+	 *
 	 * @param property
 	 * @param filename
 	 * @param directory
@@ -445,7 +445,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Remove the given location from the file
-	 * 
+	 *
 	 * @param property
 	 * @param filename
 	 * @param directory
@@ -462,7 +462,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Return a string Set containing all locations names
-	 * 
+	 *
 	 * @param filename
 	 * @param directory
 	 * @return
@@ -481,7 +481,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Parse String to create a location
-	 * 
+	 *
 	 * @param property
 	 * @param conf
 	 * @return
@@ -518,7 +518,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Load the map
-	 * 
+	 *
 	 * @param type
 	 * @param directory
 	 * @param filename
@@ -572,7 +572,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Loads the messages from the deathMessages.yml into a Map and returns it.
-	 * 
+	 *
 	 * @return A {@code Map< String, String >} object with all death reasons and
 	 *         their message</br> defined in the deathMessages.yml
 	 */
@@ -609,7 +609,7 @@ public class FileManager implements DataManager {
 
 	/**
 	 * Load all the kits
-	 * 
+	 *
 	 * @return
 	 */
 	public Map<String, KitInstance> loadKits() {
@@ -715,7 +715,7 @@ public class FileManager implements DataManager {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * be.Balor.Tools.Files.DataManager#addBannedPlayer(be.Balor.Player.BannedPlayer
 	 * )
@@ -739,7 +739,7 @@ public class FileManager implements DataManager {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see be.Balor.Tools.Files.DataManager#unbanPlayer(java.lang.String)
 	 */
 	@Override

@@ -168,6 +168,82 @@
 			<!-- </plugin> -->
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<shadedGroupFilter>
+								net.sf.opencsv
+							</shadedGroupFilter>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-3</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>jxr-maven-plugin</artifactId>
+							<version>2.0-beta-1</version>
+							<configuration>
+								<linkJavadoc>true</linkJavadoc>
+								<javadocDir>${project.reporting.outputDirectory}/AdminCmd/apidocs</javadocDir>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+							<configuration>
+								<linksource>true</linksource>
+								<splitindex>true</splitindex>
+							</configuration>
+							<reportSets>
+								<reportSet>
+									<reports>
+										<report>javadoc</report>
+									</reports>
+								</reportSet>
+							</reportSets>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.2</version>
+							<configuration>
+								<dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+								<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+								<webAccessUrl>https://github.com/Belphemur/AdminCmd</webAccessUrl>
+								<anonymousConnection>scm:git:git@github.com:Belphemur/AdminCmd.git</anonymousConnection>
+								<developerConnection>scm:git:git@github.com:Belphemur/AdminCmd.git</developerConnection>
+							</configuration>
+							<reportSets>
+								<reportSet>
+									<reports>
+										<report>index</report>
+										<report>dependencies</report>
+										<report>issue-tracking</report>
+										<report>license</report>
+										<report>project-team</report>
+									</reports>
+								</reportSet>
+							</reportSets>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
 				<version>1.9</version>
@@ -342,7 +418,7 @@
 			<artifactId>craftbukkit</artifactId>
 			<version>1.4.5-R0.3-SNAPSHOT</version>
 		</dependency>
-		-->
+		 -->
 		<dependency>
 			<groupId>org.dynmap</groupId>
 			<artifactId>DynmapAPI</artifactId>

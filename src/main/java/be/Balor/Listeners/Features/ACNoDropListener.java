@@ -20,9 +20,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.v1_4_5.EntityPlayer;
 
-import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_5.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -114,8 +114,8 @@ public class ACNoDropListener implements Listener {
 	}
 
 	private class PlayerInv {
-		final net.minecraft.server.ItemStack items[];
-		final net.minecraft.server.ItemStack armor[];
+		final net.minecraft.server.v1_4_5.ItemStack items[];
+		final net.minecraft.server.v1_4_5.ItemStack armor[];
 
 		/**
 		 *

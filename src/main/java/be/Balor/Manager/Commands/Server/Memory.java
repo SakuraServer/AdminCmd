@@ -21,21 +21,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityAnimal;
-import net.minecraft.server.EntityBoat;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.EntityMinecart;
-import net.minecraft.server.EntityMonster;
-import net.minecraft.server.EntityPainting;
-import net.minecraft.server.EntityVillager;
+import net.minecraft.server.v1_4_5.Entity;
+import net.minecraft.server.v1_4_5.EntityAnimal;
+import net.minecraft.server.v1_4_5.EntityBoat;
+import net.minecraft.server.v1_4_5.EntityExperienceOrb;
+import net.minecraft.server.v1_4_5.EntityHuman;
+import net.minecraft.server.v1_4_5.EntityItem;
+import net.minecraft.server.v1_4_5.EntityMinecart;
+import net.minecraft.server.v1_4_5.EntityMonster;
+import net.minecraft.server.v1_4_5.EntityPainting;
+import net.minecraft.server.v1_4_5.EntityVillager;
 
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
 
 import be.Balor.Manager.Commands.CommandArgs;
 import be.Balor.Manager.Exceptions.PlayerNotFound;
@@ -49,7 +49,7 @@ import be.Balor.bukkit.AdminCmd.ACPluginManager;
 
 /**
  * @author Balor (aka Antoine Aflalo)
- * 
+ *
  */
 public class Memory extends ServerCommand {
 	private final PermChild full, animal, xp, item, mob, npc, cart, boat,
@@ -74,7 +74,7 @@ public class Memory extends ServerCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * be.Balor.Manager.ACCommands#execute(org.bukkit.command.CommandSender,
 	 * java.lang.String[])
@@ -133,7 +133,7 @@ public class Memory extends ServerCommand {
 						@Override
 						public void run() {
 							for (final World w : worlds) {
-								final net.minecraft.server.World cWorld = ((CraftWorld) w)
+								final net.minecraft.server.v1_4_5.World cWorld = ((CraftWorld) w)
 										.getHandle();
 								synchronized (cWorld.entityList) {
 									entityList.put(w.getName(),
@@ -202,7 +202,7 @@ public class Memory extends ServerCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see be.Balor.Manager.ACCommands#argsCheck(java.lang.String[])
 	 */
 	@Override
@@ -212,7 +212,7 @@ public class Memory extends ServerCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see be.Balor.Manager.Commands.CoreCommand#registerBukkitPerm()
 	 */
 	@Override
@@ -246,7 +246,7 @@ public class Memory extends ServerCommand {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.lang.Runnable#run()
 		 */
 		@Override

@@ -355,7 +355,7 @@
 		<dependency>
 		<groupId>ru.tehkode</groupId>
 			<artifactId>PermissionsEx</artifactId>
-			<version>1.19.3</version>
+			<version>1.19.4</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/PermissionsEx-1.19.4.jar</systemPath>
 		</dependency>
@@ -403,22 +403,22 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.4.5-R0.3-SNAPSHOT</version>
+			<version>1.4.6-R0.1-SNAPSHOT</version>
 		</dependency>
+		<!--  
 		<dependency>
 		    <groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.4.5-R0.3-SNAPSHOT</version>
+			<version>1.4.6-R0.1-SNAPSHOT</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/craftbukkit-1.4.5-R0.3-20121211.120822-36.jar</systemPath>
 		</dependency>
-		<!--
+		-->
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.4.5-R0.3-SNAPSHOT</version>
+			<version>1.4.6-R0.1-SNAPSHOT</version>
 		</dependency>
-		 -->
 		<dependency>
 			<groupId>org.dynmap</groupId>
 			<artifactId>DynmapAPI</artifactId>

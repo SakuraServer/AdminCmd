@@ -20,15 +20,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import net.minecraft.server.v1_4_5.Entity;
-import net.minecraft.server.v1_4_5.EntityAnimal;
-import net.minecraft.server.v1_4_5.EntityMonster;
+import net.minecraft.server.v1_4_6.Entity;
+import net.minecraft.server.v1_4_6.EntityAnimal;
+import net.minecraft.server.v1_4_6.EntityMonster;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_4_5.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_4_5.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftLivingEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;

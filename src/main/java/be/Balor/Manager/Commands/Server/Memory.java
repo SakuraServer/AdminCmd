@@ -21,21 +21,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import net.minecraft.server.v1_4_5.Entity;
-import net.minecraft.server.v1_4_5.EntityAnimal;
-import net.minecraft.server.v1_4_5.EntityBoat;
-import net.minecraft.server.v1_4_5.EntityExperienceOrb;
-import net.minecraft.server.v1_4_5.EntityHuman;
-import net.minecraft.server.v1_4_5.EntityItem;
-import net.minecraft.server.v1_4_5.EntityMinecart;
-import net.minecraft.server.v1_4_5.EntityMonster;
-import net.minecraft.server.v1_4_5.EntityPainting;
-import net.minecraft.server.v1_4_5.EntityVillager;
+import net.minecraft.server.v1_4_6.Entity;
+import net.minecraft.server.v1_4_6.EntityAnimal;
+import net.minecraft.server.v1_4_6.EntityBoat;
+import net.minecraft.server.v1_4_6.EntityExperienceOrb;
+import net.minecraft.server.v1_4_6.EntityHuman;
+import net.minecraft.server.v1_4_6.EntityItem;
+import net.minecraft.server.v1_4_6.EntityMinecart;
+import net.minecraft.server.v1_4_6.EntityMonster;
+import net.minecraft.server.v1_4_6.EntityPainting;
+import net.minecraft.server.v1_4_6.EntityVillager;
 
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_6.CraftWorld;
 
 import be.Balor.Manager.Commands.CommandArgs;
 import be.Balor.Manager.Exceptions.PlayerNotFound;
@@ -133,7 +133,7 @@ public class Memory extends ServerCommand {
 						@Override
 						public void run() {
 							for (final World w : worlds) {
-								final net.minecraft.server.v1_4_5.World cWorld = ((CraftWorld) w)
+								final net.minecraft.server.v1_4_6.World cWorld = ((CraftWorld) w)
 										.getHandle();
 								synchronized (cWorld.entityList) {
 									entityList.put(w.getName(),

@@ -38,9 +38,9 @@ import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.minecraft.server.v1_4_5.EntityPlayer;
-import net.minecraft.server.v1_4_5.Packet201PlayerInfo;
-import net.minecraft.server.v1_4_5.WorldServer;
+import net.minecraft.server.v1_4_6.EntityPlayer;
+import net.minecraft.server.v1_4_6.Packet201PlayerInfo;
+import net.minecraft.server.v1_4_6.WorldServer;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -48,9 +48,9 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_4_5.CraftServer;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
-import org.bukkit.craftbukkit.v1_4_5.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_6.CraftServer;
+import org.bukkit.craftbukkit.v1_4_6.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
@@ -162,7 +162,7 @@ public final class Utils {
 
 	public static void addPlayerInOnlineList(final Player toAdd,
 			final Player fromPlayer) {
-		((CraftPlayer) fromPlayer).getHandle().netServerHandler
+		((CraftPlayer) fromPlayer).getHandle().playerConnection
 				.sendPacket(new Packet201PlayerInfo(((CraftPlayer) toAdd)
 						.getHandle().listName, true, 1000));
 	}
@@ -971,7 +971,7 @@ public final class Utils {
 		if (toRemove == null || fromPlayer == null) {
 			return;
 		}
-		((CraftPlayer) fromPlayer).getHandle().netServerHandler
+		((CraftPlayer) fromPlayer).getHandle().playerConnection
 				.sendPacket(new Packet201PlayerInfo(((CraftPlayer) toRemove)
 						.getHandle().listName, false, 9999));
 	}
@@ -1686,7 +1686,7 @@ public final class Utils {
 		final EntityPlayer entity = ((CraftPlayer) player).getHandle();
 		// Check if the fromWorld and toWorld are the same.
 		if (fromWorld == toWorld) {
-			entity.netServerHandler.teleport(toLocation);
+			entity.playerConnection.teleport(toLocation);
 		} else {
 			// Close any foreign inventory
 			if (entity.activeContainer != entity.defaultContainer) {

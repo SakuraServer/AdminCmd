@@ -19,14 +19,14 @@ package be.Balor.Tools.Egg.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.server.v1_4_5.DamageSource;
-import net.minecraft.server.v1_4_5.EntityLiving;
-import net.minecraft.server.v1_4_5.EntityPlayer;
+import net.minecraft.server.v1_4_6.DamageSource;
+import net.minecraft.server.v1_4_6.EntityLiving;
+import net.minecraft.server.v1_4_6.EntityPlayer;
 
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
-import org.bukkit.craftbukkit.v1_4_5.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_6.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 

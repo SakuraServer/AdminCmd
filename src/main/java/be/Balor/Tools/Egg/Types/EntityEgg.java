@@ -16,11 +16,11 @@
  ************************************************************************/
 package be.Balor.Tools.Egg.Types;
 
-import net.minecraft.server.v1_4_5.EntityTypes;
+import net.minecraft.server.v1_4_6.EntityTypes;
 
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_6.CraftWorld;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerEggThrowEvent;

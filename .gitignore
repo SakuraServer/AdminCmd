@@ -4,7 +4,6 @@ build*
 manifest.mf
 .settings*
 target*
-/target
 #Eclipse
 *.pydevproject
 .project
@@ -37,8 +36,5 @@ Desktop.ini
 
 #7zip
 *.7z
-
-#vim
-.*.sw[a-p]
 
 /true
